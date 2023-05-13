@@ -4,6 +4,7 @@ import chat.chatbot.repository.MenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -18,4 +19,10 @@ public class MenuService {
     public static List<Object[]> getAllCafeteriaAndMenu() {
         return menuRepository.findAllCafeteriaAndMenu();
     }
+
+    public static List<Object[]> findAllCafeteriaAndMenuByDate(LocalDate date) {
+        return menuRepository.findAllCafeteriaAndMenuByDate(date);
+    }
+
+
 }

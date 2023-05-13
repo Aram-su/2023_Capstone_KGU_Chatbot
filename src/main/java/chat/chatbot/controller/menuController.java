@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +17,12 @@ public class menuController {
     @PostMapping("/restaurants")
     public String restaurantsData() {
 
-        // 받은 데이터를 처리하는 로직 작성
-        List<Object[]> data = MenuService.getAllCafeteriaAndMenu();
+        //모든 정보
+        //List<Object[]> data = MenuService.getAllCafeteriaAndMenu();
+        //오늘 날짜의 모든 정보
+        //List<Object[]> data = MenuService.findAllCafeteriaAndMenuByDate(LocalDate.now());
+
+
         String data2 = "";
 
         List<String> stringData = new ArrayList<>();
@@ -35,6 +40,8 @@ public class menuController {
             data2 += (row+"\n");
             System.out.println(data2);
         }
+        if (data2.length() < 1 )
+            return "오늘은 학식이 없습니다.";
         return data2;
     }
 
