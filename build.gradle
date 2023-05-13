@@ -19,9 +19,9 @@ dependencies {
 	implementation 'com.fasterxml.jackson.core:jackson-databind'
 	// Jackson JSON Processor
 
-	//implementation 'org.springframework.boot:spring-boot-starter-data-jpa' //jpa 사용
-	//implementation 'mysql:mysql-connector-java' //mysql
-	//implementation 'mysql:mysql-connector-java:8.0.27' // com.mysql.cj.jdbc.Driver
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' //jpa 사용
+	implementation 'mysql:mysql-connector-java' //mysql
+	implementation 'mysql:mysql-connector-java:8.0.27' // com.mysql.cj.jdbc.Driver
 }
 
 tasks.named('test') {

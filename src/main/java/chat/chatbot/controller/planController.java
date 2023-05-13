@@ -17,4 +17,6 @@ public class planController {
         String response = "Data received successfully!";
         return response;
     }
+
+
 }
