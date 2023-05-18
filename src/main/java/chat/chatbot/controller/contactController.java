@@ -1,5 +1,6 @@
 package chat.chatbot.controller;
 
+import chat.chatbot.service.ChatbotClientService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,7 +13,11 @@ public class contactController {
     @PostMapping("/contacts")
     public String contactsData() {
         try {
-            return "Contacts Data";
+            ChatbotClientService ccs = new ChatbotClientService();
+
+            String data = ccs.Client("김도훈 교수님");
+
+            return data;
         } catch (Exception e) {
             return "Error occurred while converting data to JSON.";
         }
