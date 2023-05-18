@@ -2,6 +2,7 @@ package chat.chatbot.controller;
 
 import chat.chatbot.menu.Menu;
 import chat.chatbot.service.MenuService;
+import org.springframework.cglib.core.Local;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +19,7 @@ public class menuController {
     public String restaurantsData() {
 
         //모든 정보
-        //List<Object[]> data = MenuService.getAllCafeteriaAndMenu();
+        List<Object[]> data = MenuService.getAllCafeteriaAndMenu();
         //오늘 날짜의 모든 정보
         //List<Object[]> data = MenuService.findAllCafeteriaAndMenuByDate(LocalDate.now());
 
@@ -36,9 +37,14 @@ public class menuController {
             stringData.add(rowData.toString());
         }
 
+        LocalDate ld = LocalDate.now();
+
+        String today = ld.getYear() + "-" + String.format("%02d", ld.getMonthValue())  + "-" + ld.getDayOfMonth();
         for (String row : stringData) {
-            data2 += (row+"\n");
-            System.out.println(data2);
+            if ( row.contains(today)){
+                data2 += (row.substring(0, row.length()-12));
+                System.out.println(row);
+            }
         }
         if (data2.length() < 1 )
             return "오늘은 학식이 없습니다.";
