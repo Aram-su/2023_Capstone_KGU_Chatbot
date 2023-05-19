@@ -53,4 +53,15 @@ public class Professor {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return "Professor{" +
+                "code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", department='" + department + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
