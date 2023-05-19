@@ -9,15 +9,11 @@ import java.net.Socket;
 @Service
 public class ChatbotClientService {
 
-    private Socket clientSocket;
-    @Autowired
-    public ChatbotClientService() throws IOException {
-        clientSocket = new Socket("127.0.0.1", 5557);
-    }
-
     public String Client(String input) {
         String output = "access failed";
+
         try {
+            Socket clientSocket = new Socket("127.0.0.1", 5557);
             System.out.println("연결 확인 되었습니다.");
 
             String string = input;
