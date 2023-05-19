@@ -1,23 +1,31 @@
 package chat.chatbot.menu;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 
-@Table(name="menu")
-@Entity
+@Table(name="menu") @Entity @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Menu {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private String cafeteria;
     private String date;
     private String day;
     private String price;
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private String lunch_or_dinner;
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private String menu01 = "없음";
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private String menu02 = "없음";
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private String menu03 = "없음";
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private String menu04 = "없음";
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private String menu05 = "없음";
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private String menu06 = "없음";
 
 
