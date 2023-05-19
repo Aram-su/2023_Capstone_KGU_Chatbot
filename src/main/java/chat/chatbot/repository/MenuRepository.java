@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface MenuRepository extends JpaRepository<Menu, Long> {
 
-    @Query("SELECT m.cafeteria, m.menu01, m.menu02, m.menu03, m.menu04, m.menu05, m.menu06, m.date, m.lunch_or_dinner FROM Menu m")
+    @Query("SELECT m.cafeteria, m.lunch_or_dinner, m.menu01, m.menu02, m.menu03, m.menu04, m.menu05, m.menu06, m.date FROM Menu m")
     List<Object[]> findAllCafeteriaAndMenu();
 
     @Query("SELECT m.cafeteria, m.menu01, m.menu02, m.menu03, m.menu04, m.menu05, m.menu06 " +
