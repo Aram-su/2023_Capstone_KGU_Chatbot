@@ -1,17 +1,21 @@
 package chat.chatbot.menu;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 
-@Table(name="professor")
-@Entity
+@Table(name="professor") @Entity @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class Professor {
 
-    @Id
+    @Id @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private String code;
 
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private String name;
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private String department;
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private String phone;
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private String email;
 
     public String getCode() {
