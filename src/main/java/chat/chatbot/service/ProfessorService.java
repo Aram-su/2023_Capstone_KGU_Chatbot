@@ -20,6 +20,6 @@ public class ProfessorService {
     }
 
     public static Professor findProfessorByCode(String code) {
-        return professorRepository.findByName(code);
+        return professorRepository.findByCode(code);
     }
 }
