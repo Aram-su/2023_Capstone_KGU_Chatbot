@@ -17,7 +17,7 @@ public class menuController {
     @PostMapping("/restaurants")
     public Menu[] restaurantsData() {
 
-        Menu[] output = new Menu[3];
+        ArrayList<Menu> menus = new ArrayList<>();
         //모든 정보
         List<Object[]> data = MenuService.getAllCafeteriaAndMenu();
 
@@ -32,7 +32,6 @@ public class menuController {
             stringData.add(rowData.toString());
         }
 
-        int idx = 0;
         LocalDate ld = LocalDate.now();
         String today = ld.getYear() + "-" + String.format("%02d", ld.getMonthValue())  + "-" + ld.getDayOfMonth();
         for (String row : stringData) {
@@ -40,20 +39,29 @@ public class menuController {
                 row = (row.substring(0, row.length()-12));
                 String[] tmp = row.split(",");
 
-                output[idx] = new Menu();
-                output[idx].setCafeteria(tmp[0]);
-                output[idx].setLunch_or_dinner(tmp[1]);
-                output[idx].setMenu01(tmp[2]);
-                output[idx].setMenu02(tmp[3]);
-                output[idx].setMenu03(tmp[4]);
-                output[idx].setMenu04(tmp[5]);
-                output[idx].setMenu05(tmp[6]);
-                output[idx].setMenu06(tmp[7]);
-                idx++;
+                Menu menu_tmp = new Menu();
+                menu_tmp.setCafeteria(tmp[0]);
+                menu_tmp.setLunch_or_dinner(tmp[1]);
+                menu_tmp.setMenu01(tmp[2]);
+                menu_tmp.setMenu02(tmp[3]);
+                menu_tmp.setMenu03(tmp[4]);
+                menu_tmp.setMenu04(tmp[5]);
+                menu_tmp.setMenu05(tmp[6]);
+                menu_tmp.setMenu06(tmp[7]);
+
+                menus.add(menu_tmp);
             }
         }
 
-        return output;
+        if ( menus.size() > 0 )
+            return menus.toArray(new Menu[menus.size()]);
+
+        Menu menu_tmp = new Menu();
+        menu_tmp.setCafeteria("없음");
+        menu_tmp.setLunch_or_dinner("없음");
+        menus.add(menu_tmp);
+        return menus.toArray(new Menu[menus.size()]);
+
     }
 
 }
