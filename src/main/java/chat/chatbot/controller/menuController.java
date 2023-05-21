@@ -52,16 +52,7 @@ public class menuController {
                 menus.add(menu_tmp);
             }
         }
-
-        if ( menus.size() > 0 )
-            return menus.toArray(new Menu[menus.size()]);
-
-        Menu menu_tmp = new Menu();
-        menu_tmp.setCafeteria("없음");
-        menu_tmp.setLunch_or_dinner("없음");
-        menus.add(menu_tmp);
         return menus.toArray(new Menu[menus.size()]);
-
     }
 
 }
