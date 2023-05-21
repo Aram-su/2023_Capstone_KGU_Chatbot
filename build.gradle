@@ -22,6 +22,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' //jpa 사용
 	implementation 'mysql:mysql-connector-java' //mysql
 	implementation 'mysql:mysql-connector-java:8.0.27' // com.mysql.cj.jdbc.Driver
+
+	implementation 'org.jsoup:jsoup:1.15.3' //크롤링
+	implementation group: 'org.json', name: 'json', version: '20220320' //json in java
 }
 
 tasks.named('test') {
