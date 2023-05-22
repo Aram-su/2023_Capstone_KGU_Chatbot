@@ -19,10 +19,4 @@ public class MenuService {
     public static List<Object[]> getAllCafeteriaAndMenu() {
         return menuRepository.findAllCafeteriaAndMenu();
     }
-
-    public static List<Object[]> findAllCafeteriaAndMenuByDate(LocalDate date) {
-        return menuRepository.findAllCafeteriaAndMenuByDate(date);
-    }
-
-
 }
