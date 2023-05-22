@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class contactController {
 
+    public String code;
+
     @PostMapping("/contacts")
     public Professor contactsData() {
+        System.out.println( "contact" );
+        System.out.println( ProfessorService.findProfessorByCode(code) );
 
-        ChatbotClientService ccs = new ChatbotClientService();
-        String p_code = ccs.Client("김도훈 교수님");
-
-        return ProfessorService.findProfessorByCode(p_code);
+        return ProfessorService.findProfessorByCode(code);
     }
 }
