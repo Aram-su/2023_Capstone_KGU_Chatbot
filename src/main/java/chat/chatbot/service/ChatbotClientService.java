@@ -42,7 +42,7 @@ public class ChatbotClientService {
         int b = Integer.parseInt(tmp[1].trim());
         int c = Integer.parseInt(tmp[2].trim());
         output = String.format("%02d", a) + String.format("%02d", b) + String.format("%02d", c);
-        System.out.println(output);
+        System.out.println("chatbot client return : "+output);
 
         return output;
     }
