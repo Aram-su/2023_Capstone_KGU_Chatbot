@@ -1,7 +1,7 @@
 package chat.chatbot.controller;
 
 import chat.chatbot.data.LibrarySeat;
-import chat.chatbot.service.libraryService;
+import chat.chatbot.service.LibraryService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +14,6 @@ public class libraryController {
 
     @PostMapping("/libraries")
     public LibrarySeat[] librariesData() throws IOException {
-        return libraryService.getLibrarySeats();
+        return LibraryService.getLibrarySeats();
     }
 }

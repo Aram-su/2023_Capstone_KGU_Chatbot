@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 
 @Service
-public class libraryService {
+public class LibraryService {
 
     public static LibrarySeat[] getLibrarySeats() throws IOException {
 
