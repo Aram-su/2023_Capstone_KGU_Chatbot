@@ -1,6 +1,6 @@
 package chat.chatbot.repository;
 
-import chat.chatbot.menu.Notice;
+import chat.chatbot.data.Notice;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

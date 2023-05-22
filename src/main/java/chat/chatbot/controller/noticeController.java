@@ -1,6 +1,6 @@
 package chat.chatbot.controller;
 
-import chat.chatbot.menu.Notice;
+import chat.chatbot.data.Notice;
 import chat.chatbot.service.NoticeService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

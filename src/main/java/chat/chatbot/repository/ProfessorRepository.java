@@ -1,6 +1,6 @@
 package chat.chatbot.repository;
 
-import chat.chatbot.menu.Professor;
+import chat.chatbot.data.Professor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

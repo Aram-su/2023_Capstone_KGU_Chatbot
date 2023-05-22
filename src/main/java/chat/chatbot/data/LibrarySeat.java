@@ -1,4 +1,4 @@
-package chat.chatbot.menu;
+package chat.chatbot.data;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

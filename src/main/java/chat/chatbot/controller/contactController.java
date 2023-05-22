@@ -1,6 +1,6 @@
 package chat.chatbot.controller;
 
-import chat.chatbot.menu.Professor;
+import chat.chatbot.data.Professor;
 import chat.chatbot.service.ChatbotClientService;
 import chat.chatbot.service.ProfessorService;
 import org.springframework.web.bind.annotation.PostMapping;

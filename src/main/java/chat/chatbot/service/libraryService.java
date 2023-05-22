@@ -1,6 +1,6 @@
 package chat.chatbot.service;
 
-import chat.chatbot.menu.LibrarySeat;
+import chat.chatbot.data.LibrarySeat;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;

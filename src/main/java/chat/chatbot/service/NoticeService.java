@@ -1,6 +1,6 @@
 package chat.chatbot.service;
 
-import chat.chatbot.menu.Notice;
+import chat.chatbot.data.Notice;
 import chat.chatbot.repository.NoticeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

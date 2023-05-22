@@ -1,6 +1,6 @@
 package chat.chatbot.service;
 
-import chat.chatbot.menu.Professor;
+import chat.chatbot.data.Professor;
 import chat.chatbot.repository.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
