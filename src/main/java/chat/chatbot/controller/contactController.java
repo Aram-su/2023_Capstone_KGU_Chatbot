@@ -16,9 +16,6 @@ public class contactController {
 
     @PostMapping("/contacts")
     public Professor contactsData() {
-        System.out.println( "contact" );
-        System.out.println( ProfessorService.findProfessorByCode(code) );
-
         return ProfessorService.findProfessorByCode(code);
     }
 }
