@@ -21,13 +21,15 @@ public class messageController {
     }
 
     @PostMapping("/messages")
-    public void messageData(@RequestBody InputMessage msg) {
+    public <T> T messageData(@RequestBody InputMessage msg) {
+        System.out.println(msg.getMessage());
 
         String code = new ChatbotClientService().Client(msg.getMessage());
 
         if ( code.substring(0,2).equals("02")){
             contactController.code = code;
-            contactController.contactsData();
+            return (T) contactController.contactsData();
         }
+        return null;
     }
 }
