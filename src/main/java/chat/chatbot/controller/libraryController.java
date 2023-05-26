@@ -13,7 +13,7 @@ import java.io.IOException;
 public class libraryController {
 
     @PostMapping("/libraries")
-    public LibrarySeat[] librariesData() throws IOException {
+    public static LibrarySeat[] librariesData() throws IOException {
         return LibraryService.getLibrarySeats();
     }
 }
