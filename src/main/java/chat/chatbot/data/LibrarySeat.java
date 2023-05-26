@@ -3,7 +3,8 @@ package chat.chatbot.data;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 public class LibrarySeat {
-
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    private String code = "050101";
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private String location;
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
