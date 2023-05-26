@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+
 @RestController
 @RequestMapping("/api")
 public class messageController {
@@ -21,10 +23,14 @@ public class messageController {
     }
 
     @PostMapping("/messages")
-    public <T> T messageData(@RequestBody InputMessage msg) {
+    public <T> T messageData(@RequestBody InputMessage msg) throws IOException {
         System.out.println(msg.getMessage());
 
         String code = new ChatbotClientService().Client(msg.getMessage());
+
+        if ( code.equals("050101") || code.equals("050201")){
+            return (T) libraryController.librariesData();
+        }
 
         if ( code.substring(0,2).equals("02")){
             contactController.code = code;
