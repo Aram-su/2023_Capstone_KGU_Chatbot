@@ -16,6 +16,14 @@ public class LibrarySeat {
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private String operating_hours;
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     public String getLocation() {
         return location;
     }
