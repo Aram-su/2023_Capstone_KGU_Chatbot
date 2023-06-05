@@ -1,8 +1,9 @@
 package chat.chatbot.controller;
 
 import chat.chatbot.data.InputMessage;
+import chat.chatbot.data.SuwonMap;
 import chat.chatbot.service.ChatbotClientService;
-import chat.chatbot.service.ProfessorService;
+import chat.chatbot.service.SuwonMapService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,14 +29,23 @@ public class messageController {
 
         String code = new ChatbotClientService().Client(msg.getMessage());
 
+        if ( code.substring(0,2).equals("02")){
+            contactController   .code = code;
+            return (T) contactController.contactsData();
+        }
+
         if ( code.equals("050101") || code.equals("050201")){
             return (T) libraryController.librariesData();
         }
 
-        if ( code.substring(0,2).equals("02")){
-            contactController.code = code;
-            return (T) contactController.contactsData();
+        if ( code.substring(0,2).equals("07") ){
+            SuwonMap sm = new SuwonMap();
+            sm.setCode(code);
+            sm.setLocation(SuwonMapService.setLocation(code.substring(2,4)));
+            sm.setDescription(SuwonMapService.setDescription(code.substring(2,4)));
+            return (T) sm;
         }
+
         return null;
     }
 }
