@@ -18,11 +18,13 @@ public class messageController {
 
     private final contactController contactController;
     private final menuController menuController;
+    private final noticeController noticeController;
 
     @Autowired
-    public messageController(contactController contactController, menuController menuController) {
+    public messageController(contactController contactController, menuController menuController, noticeController noticeController) {
         this.contactController = contactController;
         this.menuController = menuController;
+        this.noticeController = noticeController;
     }
 
     @PostMapping("/messages")
@@ -50,6 +52,10 @@ public class messageController {
 
         if ( code.substring(0,2).equals("01") ){
             return (T) menuController.restaurantsData();
+        }
+
+        if ( code.substring(0,2).equals("09") ){
+            return (T) noticeController.announcementsData();
         }
 
         return null;
