@@ -33,6 +33,9 @@ public class messageController {
 
         String code = new ChatbotClientService().Client(msg.getMessage());
 
+        if ( code.substring(0,2).equals("01") ){
+            return (T) menuController.restaurantsData();
+        }
         if ( code.substring(0,2).equals("02")){
             contactController.code = code;
             return (T) contactController.contactsData();
@@ -50,13 +53,10 @@ public class messageController {
             return (T) sm;
         }
 
-        if ( code.substring(0,2).equals("01") ){
-            return (T) menuController.restaurantsData();
-        }
-
         if ( code.substring(0,2).equals("09") ){
             return (T) noticeController.announcementsData();
         }
+
 
         return null;
     }
