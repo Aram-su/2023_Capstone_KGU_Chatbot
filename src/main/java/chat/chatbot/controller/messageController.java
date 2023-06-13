@@ -17,10 +17,12 @@ import java.io.IOException;
 public class messageController {
 
     private final contactController contactController;
+    private final menuController menuController;
 
     @Autowired
-    public messageController(contactController contactController) {
+    public messageController(contactController contactController, menuController menuController) {
         this.contactController = contactController;
+        this.menuController = menuController;
     }
 
     @PostMapping("/messages")
@@ -30,7 +32,7 @@ public class messageController {
         String code = new ChatbotClientService().Client(msg.getMessage());
 
         if ( code.substring(0,2).equals("02")){
-            contactController   .code = code;
+            contactController.code = code;
             return (T) contactController.contactsData();
         }
 
@@ -44,6 +46,10 @@ public class messageController {
             sm.setLocation(SuwonMapService.setLocation(code.substring(2,4)));
             sm.setDescription(SuwonMapService.setDescription(code.substring(2,4)));
             return (T) sm;
+        }
+
+        if ( code.substring(0,2).equals("01") ){
+            return (T) menuController.restaurantsData();
         }
 
         return null;
